@@ -3,7 +3,7 @@ class LeadsController < ApplicationController
 
   def create
     lead = Lead.create(lead_params)
-    render json: {success: true}
+    render json: {success: lead.valid?, errors: lead.errors.full_messages}
   end
 
   private

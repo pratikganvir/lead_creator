@@ -1,5 +1,5 @@
 class Lead < ApplicationRecord
-	validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+	validates :email, presence: { message: "must be given" }, format: { with: URI::MailTo::EMAIL_REGEXP }
 	validate :disposable_email
 
 	DISPOSABLE_DOMAIN_LIST = ['0-mail.com',
